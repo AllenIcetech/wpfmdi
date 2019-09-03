@@ -438,10 +438,16 @@ namespace WPF.MDI
 
 				dragThumb.MouseDoubleClick += (sender, e) =>
 				{
-					if (WindowState == WindowState.Minimized)
-						minimizeButton_Click(null, null);
-					else if (WindowState == WindowState.Normal)
-						maximizeButton_Click(null, null);
+                    switch (WindowState)
+                    {
+                        case WindowState.Normal:
+                        case WindowState.Maximized:
+                            maximizeButton_Click(null, null);
+                            break;
+                        case WindowState.Minimized:
+                            minimizeButton_Click(null, null);
+                            break;
+                    }
 				};
 			}
 
@@ -900,24 +906,24 @@ namespace WPF.MDI
 			{
 				if (mdiContainer.ActiveMdiChild.WindowState != WindowState.Maximized)
 				{
-					for (int i = 0; i < mdiContainer.Children.Count; i++)
-					{
-						if (mdiContainer.Children[i] != mdiChild &&
-								mdiContainer.Children[i].WindowState == WindowState.Maximized &&
-								mdiContainer.Children[i].MaximizeBox)
-							mdiContainer.Children[i].WindowState = WindowState.Normal;
-					}
+					//for (int i = 0; i < mdiContainer.Children.Count; i++)
+					//{
+					//	if (mdiContainer.Children[i] != mdiChild &&
+					//			mdiContainer.Children[i].WindowState == WindowState.Maximized &&
+					//			mdiContainer.Children[i].MaximizeBox)
+					//		mdiContainer.Children[i].WindowState = WindowState.Normal;
+					//}
 
 					ScrollViewer sv = (ScrollViewer)((Grid)mdiContainer.Content).Children[1];
 					sv.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
 					sv.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
 				}
 
-				mdiChild.Buttons.Children.Clear();
-				mdiChild.Buttons = null;
-				mdiChild.buttonsPanel.Children.Add(mdiChild.minimizeButton);
-				mdiChild.buttonsPanel.Children.Add(mdiChild.maximizeButton);
-				mdiChild.buttonsPanel.Children.Add(mdiChild.closeButton);
+				//mdiChild.Buttons.Children.Clear();
+				//mdiChild.Buttons = null;
+				//mdiChild.buttonsPanel.Children.Add(mdiChild.minimizeButton);
+				//mdiChild.buttonsPanel.Children.Add(mdiChild.maximizeButton);
+				//mdiChild.buttonsPanel.Children.Add(mdiChild.closeButton);
 			}
 
 			if (previousWindowState == WindowState.Minimized)
@@ -1003,16 +1009,16 @@ namespace WPF.MDI
 							mdiChild.originalDimension = new Rect(mdiChild.Position.X, mdiChild.Position.Y, mdiChild.ActualWidth, mdiChild.ActualHeight);
 						mdiChild.NonMaximizedState = previousWindowState;
 
-						mdiChild.buttonsPanel.Children.Clear();
-						StackPanel sp = new StackPanel { Orientation = Orientation.Horizontal };
-						sp.Children.Add(mdiChild.minimizeButton);
-						sp.Children.Add(mdiChild.maximizeButton);
-						sp.Children.Add(mdiChild.closeButton);
-						mdiChild.Buttons = sp;
+						//mdiChild.buttonsPanel.Children.Clear();
+						//StackPanel sp = new StackPanel { Orientation = Orientation.Horizontal };
+						//sp.Children.Add(mdiChild.minimizeButton);
+						//sp.Children.Add(mdiChild.maximizeButton);
+						//sp.Children.Add(mdiChild.closeButton);
+						//mdiChild.Buttons = sp;
 
 						mdiChild.Position = new Point(0, 0);
 						mdiChild.Width = mdiContainer.ActualWidth;
-						mdiChild.Height = mdiContainer.InnerHeight - 2; // ContentBorder.BorderThickness="1" in template
+						mdiChild.Height = mdiContainer.ActualHeight - 2; // ContentBorder.BorderThickness="1" in template
 
 						ScrollViewer sv = (ScrollViewer)((Grid)mdiContainer.Content).Children[1];
 						sv.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
@@ -1020,8 +1026,8 @@ namespace WPF.MDI
 					}
 					break;
 			}
-			if (mdiContainer.ActiveMdiChild == mdiChild)
-				mdiContainer.Buttons = mdiChild.Buttons;
+			//if (mdiContainer.ActiveMdiChild == mdiChild)
+			//	mdiContainer.Buttons = mdiChild.Buttons;
 			mdiContainer.InvalidateSize();
 		}
 		

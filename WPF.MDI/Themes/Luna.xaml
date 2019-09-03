@@ -403,7 +403,8 @@
                             <Setter TargetName="TopRightBackground" Property="Source" Value="{StaticResource MinimizedTopRightUnfocused}" />
                         </MultiTrigger>
                         <Trigger Property="WindowState" Value="Maximized">
-                            <Setter TargetName="TopLeftBackground" Property="Visibility" Value="Hidden" />
+                            <Setter Property="Resizable" Value="False" />
+                            <!--<Setter TargetName="TopLeftBackground" Property="Visibility" Value="Hidden" />
                             <Setter TargetName="TopMiddleBackground" Property="Visibility" Value="Hidden" />
                             <Setter TargetName="TopRightBackground" Property="Visibility" Value="Hidden" />
                             <Setter TargetName="LeftBackground" Property="Visibility" Value="Hidden" />
@@ -414,14 +415,13 @@
                             <Setter TargetName="Header" Property="Visibility" Value="Hidden" />
                             <Setter TargetName="HeaderContent" Property="Height" Value="21" />
                             <Setter TargetName="IconImage" Property="Margin" Value="2,0,0,0" />
-                            <Setter TargetName="ContentHost" Property="Margin" Value="0,0,0,0" /> <!-- HERE -->
+                            <Setter TargetName="ContentHost" Property="Margin" Value="0,0,0,0" /> --><!-- HERE --><!--
                             <Setter TargetName="ContentHost" Property="BorderBrush" Value="{StaticResource ContentHostBackgroundBrush}" />
                             <Setter TargetName="ContentHost" Property="BorderThickness" Value="1" />
                             <Setter TargetName="TopBackground" Property="Background" Value="{StaticResource TopBackgroundBrush}" />
                             <Setter TargetName="TopBackground" Property="BorderBrush" Value="{StaticResource TopBackgroundBorderBrush}" />
                             <Setter TargetName="TopBackground" Property="BorderThickness" Value="0,0,0,1" />
                             <Setter TargetName="DragThumb" Property="IsHitTestVisible" Value="False" />
-                            <Setter Property="Resizable" Value="False" />
                             <Setter TargetName="MinimizeButton" Property="Margin" Value="20,1,1,1" />
                             <Setter TargetName="MaximizeButton" Property="Margin" Value="1" />
                             <Setter TargetName="CloseButton" Property="Margin" Value="1" />
@@ -451,7 +451,7 @@
                                         <Image Width="18" Height="19" Source="{StaticResource MaximizedCloseImage}" />
                                     </ControlTemplate>
                                 </Setter.Value>
-                            </Setter>
+                            </Setter>-->
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

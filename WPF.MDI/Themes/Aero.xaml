@@ -418,7 +418,7 @@
                         </MultiTrigger>
                         <Trigger Property="WindowState" Value="Maximized">
                             <Setter Property="Resizable" Value="False" />
-                            <Setter TargetName="BaseBorder" Property="BorderThickness" Value="0,1,0,0" />
+                            <!--<Setter TargetName="BaseBorder" Property="BorderThickness" Value="0,1,0,0" />
                             <Setter TargetName="BaseBorder" Property="BorderBrush" Value="{StaticResource BackBorderMaximizedBrush}" />
                             <Setter TargetName="BaseBorder" Property="CornerRadius" Value="0" />
                             <Setter TargetName="DarkenBackground" Property="Background" Value="{StaticResource DarkenMaximizedBrush}" />
@@ -428,7 +428,7 @@
                             <Setter TargetName="HighlightBackground" Property="Visibility" Value="Hidden" />
                             <Setter TargetName="ContentBorder" Property="BorderThickness" Value="1" />
                             <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{StaticResource ContentMaximizedBorderBrush}" />
-                            <Setter TargetName="ContentBorder" Property="Margin" Value="0,0,0,0" /> <!-- HERE -->
+                            <Setter TargetName="ContentBorder" Property="Margin" Value="0,0,0,0" /> --><!-- HERE --><!--
                             <Setter TargetName="HeaderContent" Property="Height" Value="20" />
                             <Setter TargetName="LeftBorder" Property="Visibility" Value="Hidden" />
                             <Setter TargetName="TopBorder" Property="Visibility" Value="Hidden" />
@@ -471,7 +471,7 @@
                                         </Button>
                                     </ControlTemplate>
                                 </Setter.Value>
-                            </Setter>
+                            </Setter>-->
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
